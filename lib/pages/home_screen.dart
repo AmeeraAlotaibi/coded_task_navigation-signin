@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '/pages/signed_in.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -58,7 +59,9 @@ class HomeScreen extends StatelessWidget {
                   MaterialStateProperty.all<Color>(Colors.deepPurpleAccent),
             ),
             onPressed: () {
-              // Step 8
+              if (passwordController.text == "12345") {
+              context.go("/signin", extra: usernameController.text);
+              }
             },
             child: const Padding(
               padding: EdgeInsets.all(8.0),
